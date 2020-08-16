@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <p>Ejercicio #1</p>
+            <p>Valor de cambio, en 5 dias diferenes, de Euros a dolares</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div>
+                <mat-label>Escoge una fecha </mat-label>
+                <input #ref matInput [placeholder]="date | date" [matDatepicker]="picker"
+                    (dateChange)="handleDOBChange( ref.value)">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker [startAt]="date" #picker></mat-datepicker>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            Para la fecha {{date|date}} es de {{currencyValue}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <button type="button" class="btn btn-primary mx-2" (click)="storeCurrentyConversion()">Guardar en
+                BD</button>
+            <button type="button" class="btn btn-success mx-2">Mostrar valores</button>
+        </div>
+    </div>
+</div>
