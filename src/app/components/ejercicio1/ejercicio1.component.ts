@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CurrecyConversionService } from '../../services/currecy-conversion.service';
 import { tap } from 'rxjs/operators';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
-import { MatDatepickerInputEvent } from '@angular/material/datepicker';
-
+import valueCurrencyI from '../../interfaces/valueCurrencyI';
 @Component({
   selector: 'app-ejercicio1',
   templateUrl: './ejercicio1.component.html',
@@ -11,11 +9,13 @@ import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 })
 export class Ejercicio1Component implements OnInit {
   date = new Date(new Date().getTime());
+  valuesOfChange = [];
   currencyValue = '';
   constructor(private currecyConversionService: CurrecyConversionService) {}
 
   ngOnInit(): void {
     this.getCurrencyConversion(this.dateToString(this.date));
+    this.getAllValues();
   }
 
   getCurrencyConversion(date): void {
@@ -50,6 +50,26 @@ export class Ejercicio1Component implements OnInit {
   }
 
   storeCurrentyConversion(): void {
-    console.log(`Guardando: ${this.date} y ${this.currencyValue}`);
+    const valueToStore = { date: this.date, value: this.currencyValue };
+    this.currecyConversionService
+      .storeValuesInDB(valueToStore)
+      .pipe(
+        tap((data) => {
+          console.log('Data Guardada: ', data);
+        })
+      )
+      .subscribe();
+  }
+
+  getAllValues(): void {
+    this.currecyConversionService
+      .getValuesOfChange()
+      .pipe(
+        tap((values) => {
+          console.log(values);
+          this.valuesOfChange = values.values;
+        })
+      )
+      .subscribe();
   }
 }

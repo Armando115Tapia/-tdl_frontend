@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
+import { HOST } from '../shared/var.constant';
+import valueCurrencyI from '../interfaces/valueCurrencyI';
 @Injectable({
   providedIn: 'root',
 })
 export class CurrecyConversionService {
+  URL_BACKEND = HOST;
   constructor(private http: HttpClient) {}
 
   // URL TO GET CURRENCYCONVERSION
@@ -13,5 +15,12 @@ export class CurrecyConversionService {
 
   getCurrencyConversion(dateString): Observable<any> {
     return this.http.get(`${this.URL_CURRENCY_CONVERSION}/${dateString}`);
+  }
+
+  getValuesOfChange(): Observable<any> {
+    return this.http.get(`${this.URL_BACKEND}/value`);
+  }
+  storeValuesInDB(valueCurrency): Observable<any> {
+    return this.http.post(`${this.URL_BACKEND}/value`, valueCurrency);
   }
 }
