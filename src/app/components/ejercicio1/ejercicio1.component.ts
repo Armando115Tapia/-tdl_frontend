@@ -9,6 +9,7 @@ import { tap } from 'rxjs/operators';
 })
 export class Ejercicio1Component implements OnInit {
   date = new Date(new Date().getTime());
+  tomorrow = new Date();
   valuesOfChange = [];
   currencyValue = '';
   constructor(private currecyConversionService: CurrecyConversionService) {}
@@ -33,11 +34,15 @@ export class Ejercicio1Component implements OnInit {
     console.log(dateString);
     const arrDate = dateString.split('/');
     const year = arrDate[2];
-    const month = arrDate[0];
+    const month = arrDate[0] - 1;
     const day = arrDate[1];
+    console.log('year', year);
+    console.log('month', month);
+    console.log('day', day);
 
     const dateSting = year + '-' + month + '-' + day;
     this.date = new Date(year, month, day);
+    console.log('new Date', this.date);
 
     this.getCurrencyConversion(dateSting);
   }
