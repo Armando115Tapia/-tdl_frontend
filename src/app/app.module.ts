@@ -9,9 +9,10 @@ import { MaterialModule } from './material/material.module';
 import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { Ejercicio2Component } from './components/ejercicio2/ejercicio2.component';
 
 @NgModule({
-  declarations: [AppComponent, Ejercicio1Component, NavbarComponent, FooterComponent],
+  declarations: [AppComponent, Ejercicio1Component, NavbarComponent, FooterComponent, Ejercicio2Component],
   imports: [
     BrowserModule,
     AppRoutingModule,

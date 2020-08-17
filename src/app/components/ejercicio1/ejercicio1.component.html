@@ -1,14 +1,14 @@
-<div class="container">
-    <div class="row">
+<div class="container ">
+    <div class="row ">
         <div class="col">
-            <h1>Primer ejercicio </h1>
+            <h1>Primer Ejercicio </h1>
             <p>Valor de cambio, en 5 dias diferenes, de Euros a dolares</p>
         </div>
     </div>
-    <div class="row">
+    <div class="row ">
         <div class="col">
             <div>
-                <mat-label>Escoge una fecha </mat-label>
+                <mat-label>Seleccione una fecha </mat-label>
                 <input #ref matInput [placeholder]="date | date" [matDatepicker]="picker" [max]="tomorrow"
                     (dateChange)="handleDOBChange( ref.value)">
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
@@ -17,8 +17,17 @@
         </div>
     </div>
     <div class="row">
-        <div class="col">
-            Para la fecha {{date|date}} es de {{currencyValue}}
+        <div class="col my-2">
+            <p>
+                Para la fecha
+                <span class="bold">
+                    {{date|date}}
+                </span>
+                es de
+                <span class="bold">
+                    {{currencyValue}}
+                </span>
+            </p>
         </div>
     </div>
     <div class="row">
