@@ -23,7 +23,7 @@
                 <span class="bold">
                     {{date|date}}
                 </span>
-                es de
+                el valor de cambio es de:
                 <span class="bold">
                     {{currencyValue}}
                 </span>
@@ -49,8 +49,8 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let value of valuesOfChange">
-                        <th scope="row">1</th>
+                    <tr *ngFor="let value of valuesOfChange; let i = index">
+                        <th scope="row">{{i + 1 }}</th>
                         <td>{{value.date | date}}</td>
                         <td>{{value.value}}</td>
 

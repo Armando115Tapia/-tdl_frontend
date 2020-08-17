@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { HOST } from '../shared/var.constant';
-import valueCurrencyI from '../interfaces/valueCurrencyI';
+
 @Injectable({
   providedIn: 'root',
 })

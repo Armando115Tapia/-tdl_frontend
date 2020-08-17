@@ -1,1 +1,42 @@
-<p>ejercicio2 works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1>Segundo ejercicio Ejercicio </h1>
+            <p>Obtner valores para humedad y temperatura de <span class="bold"> dweet.io</span>, mediante una funcion
+                lambda </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <p>
+                El código donde se implementa este ejercicio esta
+                <a href="https://github.com/Armando115Tapia/tdl_2ejercicio.git" target="_blank">aqui</a>
+            </p>
+            <p>A continuación se puede observar los valores guardados en la BD</p>
+            <button type="button" class="btn btn-success mx-2" (click)="getAllValues()">Mostrar valores de BD</button>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <table class="table my-4 py-4">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Temperatura</th>
+                        <th scope="col">Humedad</th>
+                    </tr>
+                </thead>
+                <tr *ngFor="let value of valuesTemHum; let i = index">
+                    <th scope="row">{{i + 1 }}</th>
+                    <td>{{value.temperature }}</td>
+                    <td>{{value.humidity}}</td>
+
+                </tr>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
