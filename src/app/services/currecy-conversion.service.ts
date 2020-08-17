@@ -23,4 +23,10 @@ export class CurrecyConversionService {
   storeValuesInDB(valueCurrency): Observable<any> {
     return this.http.post(`${this.URL_BACKEND}/value`, valueCurrency);
   }
+  hitWebHook(valueCurrency): Observable<any> {
+    return this.http.post(
+      'https://webhook.site/bb5a6abe-1a7b-452e-86c8-40b2bbba00b7',
+      valueCurrency
+    );
+  }
 }

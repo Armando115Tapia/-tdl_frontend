@@ -1,0 +1,11 @@
+.footer_container--backgound {
+  padding: 5px 0 5px 0;
+  background-color: #35a7ff;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer_ul--style {
+  margin: 0px;
+}

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CurrecyConversionService } from '../../services/currecy-conversion.service';
 import { tap } from 'rxjs/operators';
-import valueCurrencyI from '../../interfaces/valueCurrencyI';
+
 @Component({
   selector: 'app-ejercicio1',
   templateUrl: './ejercicio1.component.html',
@@ -71,5 +71,11 @@ export class Ejercicio1Component implements OnInit {
         })
       )
       .subscribe();
+  }
+
+  hitWebHook(): void {
+    const valueToStore = { date: this.date, value: this.currencyValue };
+    console.log('valueToStore', valueToStore);
+    this.currecyConversionService.hitWebHook(valueToStore);
   }
 }
